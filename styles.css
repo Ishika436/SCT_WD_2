@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #555;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.stopwatch-display {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.time-display {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+    flex: 1;
+    min-width: 120px;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #5568d3;
+}
+
+.btn-primary.pause {
+    background: #ff6b6b;
+}
+
+.btn-primary.pause:hover {
+    background: #ee5a52;
+}
+
+.btn-reset {
+    background: #95a5a6;
+    color: white;
+    flex: 1;
+    min-width: 120px;
+}
+
+.btn-reset:hover:not(:disabled) {
+    background: #7f8c8d;
+}
+
+.btn-lap {
+    background: #2ecc71;
+    color: white;
+    flex: 1;
+    min-width: 120px;
+}
+
+.btn-lap:hover:not(:disabled) {
+    background: #27ae60;
+}
+
+.btn-lap:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #bdc3c7;
+}
+
+.laps-container {
+    border-top: 2px solid #ecf0f1;
+    padding-top: 20px;
+}
+
+.laps-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.lap-number {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 60px;
+}
+
+.lap-time {
+    font-weight: 500;
+    color: #333;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+}
+
+.no-laps {
+    text-align: center;
+    color: #95a5a6;
+    padding: 20px;
+    font-style: italic;
+}
+
+.laps-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.laps-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.laps-list::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.laps-list::-webkit-scrollbar-thumb:hover {
+    background: #5568d3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .time-display {
+        font-size: 2.5em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .button-group {
+        gap: 8px;
+    }
+
+    .lap-item {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    .stopwatch-display {
+        padding: 25px;
+    }
+
+    .time-display {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.85em;
+        min-width: 80px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}
